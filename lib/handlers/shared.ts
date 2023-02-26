@@ -6,7 +6,7 @@ import {
   ITokenProvider,
   nativeOnChain,
   NATIVE_NAMES_BY_ID,
-} from '@uniswap/smart-order-router'
+} from '@orbitalapes/smart-order-router'
 import Logger from 'bunyan'
 
 export const DEFAULT_ROUTING_CONFIG_BY_CHAIN = (chainId: ChainId): AlphaRouterConfig => {
@@ -139,3 +139,5 @@ export function parseSlippageTolerance(slippageTolerance: string): Percent {
 export function parseDeadline(deadline: string): number {
   return Math.floor(Date.now() / 1000) + parseInt(deadline)
 }
+
+

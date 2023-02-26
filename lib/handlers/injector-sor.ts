@@ -30,7 +30,7 @@ import {
   V2PoolProvider,
   V2QuoteProvider,
   V3PoolProvider,
-} from '@uniswap/smart-order-router'
+} from '@orbitalapes/smart-order-router'
 import { TokenList } from '@uniswap/token-lists'
 import { default as bunyan, default as Logger } from 'bunyan'
 import { ethers } from 'ethers'
@@ -56,6 +56,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.GÖRLI,
   ChainId.CELO,
   ChainId.CELO_ALFAJORES,
+  ChainId.FUJI,
 ]
 const DEFAULT_TOKEN_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 

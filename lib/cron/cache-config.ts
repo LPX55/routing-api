@@ -1,5 +1,5 @@
 import { Protocol } from '@uniswap/router-sdk'
-import { ChainId, V2SubgraphProvider, V3SubgraphProvider } from '@uniswap/smart-order-router'
+import { ChainId, V2SubgraphProvider, V3SubgraphProvider } from '@orbitalapes/smart-order-router'
 
 export const chainProtocols = [
   // V3.
@@ -26,6 +26,12 @@ export const chainProtocols = [
     chainId: ChainId.CELO,
     timeout: 90000,
     provider: new V3SubgraphProvider(ChainId.CELO, 3, 90000),
+  },
+  {
+    protocol: Protocol.V3,
+    chainId: ChainId.FUJI,
+    timeout: 90000,
+    provider: new V3SubgraphProvider(ChainId.FUJI, 3, 90000),
   },
   // Currently there is no working V3 subgraph for Optimism so we use a static provider.
   // V2.

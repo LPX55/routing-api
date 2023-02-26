@@ -13,7 +13,7 @@ import {
   SwapType,
   SimulationStatus,
   IMetric,
-} from '@uniswap/smart-order-router'
+} from '@orbitalapes/smart-order-router'
 import { Pool } from '@uniswap/v3-sdk'
 import JSBI from 'jsbi'
 import _ from 'lodash'

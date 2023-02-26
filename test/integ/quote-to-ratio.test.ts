@@ -13,7 +13,7 @@ import {
   USDC_MAINNET,
   USDT_MAINNET,
   WBTC_MAINNET,
-} from '@uniswap/smart-order-router'
+} from '@orbitalapes/smart-order-router'
 import { MethodParameters, Pool, Position } from '@uniswap/v3-sdk'
 import { fail } from 'assert'
 import axios, { AxiosResponse } from 'axios'
@@ -717,6 +717,7 @@ describe('quote-to-ratio', async function () {
     [ChainId.POLYGON_MUMBAI]: USDC_ON(ChainId.POLYGON_MUMBAI),
     [ChainId.CELO]: CUSD_CELO,
     [ChainId.CELO_ALFAJORES]: CUSD_CELO_ALFAJORES,
+    [ChainId.FUJI]: USDC_ON(ChainId.FUJI),
     [ChainId.MOONBEAM]: null,
     [ChainId.GNOSIS]: null,
   }
@@ -738,6 +739,7 @@ describe('quote-to-ratio', async function () {
     [ChainId.MOONBEAM]: null,
     [ChainId.GNOSIS]: null,
     [ChainId.ARBITRUM_GOERLI]: null,
+    [ChainId.FUJI]: null,
   }
 
   for (const chain of _.filter(
@@ -756,7 +758,8 @@ describe('quote-to-ratio', async function () {
       c != ChainId.CELO &&
       c != ChainId.CELO_ALFAJORES &&
       c != ChainId.KOVAN &&
-      c != ChainId.ROPSTEN
+      c != ChainId.ROPSTEN &&
+      c != ChainId.FUJI
   )) {
     const erc1 = TEST_ERC20_1[chain]
     const erc2 = TEST_ERC20_2[chain]
