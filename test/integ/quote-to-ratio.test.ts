@@ -718,6 +718,7 @@ describe('quote-to-ratio', async function () {
     [ChainId.CELO]: CUSD_CELO,
     [ChainId.CELO_ALFAJORES]: CUSD_CELO_ALFAJORES,
     [ChainId.FUJI]: USDC_ON(ChainId.FUJI),
+    [ChainId.TEVMOS]: USDC_ON(ChainId.TEVMOS),
     [ChainId.MOONBEAM]: null,
     [ChainId.GNOSIS]: null,
   }
@@ -740,6 +741,7 @@ describe('quote-to-ratio', async function () {
     [ChainId.GNOSIS]: null,
     [ChainId.ARBITRUM_GOERLI]: null,
     [ChainId.FUJI]: null,
+    [ChainId.TEVMOS]: null,
   }
 
   for (const chain of _.filter(
@@ -759,7 +761,8 @@ describe('quote-to-ratio', async function () {
       c != ChainId.CELO_ALFAJORES &&
       c != ChainId.KOVAN &&
       c != ChainId.ROPSTEN &&
-      c != ChainId.FUJI
+      c != ChainId.FUJI &&
+      c != ChainId.TEVMOS
   )) {
     const erc1 = TEST_ERC20_1[chain]
     const erc2 = TEST_ERC20_2[chain]

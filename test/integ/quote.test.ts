@@ -1898,6 +1898,7 @@ describe('quote', function () {
     [ChainId.POLYGON]: USDC_ON(ChainId.POLYGON),
     [ChainId.POLYGON_MUMBAI]: USDC_ON(ChainId.POLYGON_MUMBAI),
     [ChainId.FUJI]: USDC_ON(ChainId.FUJI),
+    [ChainId.TEVMOS]: USDC_ON(ChainId.TEVMOS),
     [ChainId.CELO]: CUSD_CELO,
     [ChainId.CELO_ALFAJORES]: CUSD_CELO_ALFAJORES,
     [ChainId.MOONBEAM]: null,
@@ -1923,6 +1924,7 @@ describe('quote', function () {
     [ChainId.GNOSIS]: null,
     [ChainId.ARBITRUM_GOERLI]: null,
     [ChainId.FUJI]: null,
+    [ChainId.TEVMOS]: null,
   }
 
   // TODO: Find valid pools/tokens on optimistic kovan and polygon mumbai. We skip those tests for now.
