@@ -58,6 +58,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.CELO_ALFAJORES,
   ChainId.FUJI,
   ChainId.TEVMOS,
+  ChainId.EVMOS
 ]
 const DEFAULT_TOKEN_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 
