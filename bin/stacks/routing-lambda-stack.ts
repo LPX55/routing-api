@@ -1,13 +1,10 @@
 import * as cdk from 'aws-cdk-lib'
-import { Duration } from 'aws-cdk-lib'
 import * as asg from 'aws-cdk-lib/aws-applicationautoscaling'
-import * as aws_cloudwatch from 'aws-cdk-lib/aws-cloudwatch'
-import * as aws_cloudwatch_actions from 'aws-cdk-lib/aws-cloudwatch-actions'
 import * as aws_iam from 'aws-cdk-lib/aws-iam'
 import * as aws_lambda from 'aws-cdk-lib/aws-lambda'
 import * as aws_lambda_nodejs from 'aws-cdk-lib/aws-lambda-nodejs'
 import * as aws_s3 from 'aws-cdk-lib/aws-s3'
-import * as aws_sns from 'aws-cdk-lib/aws-sns'
+
 import { Construct } from 'constructs'
 import * as path from 'path'
 
@@ -39,7 +36,6 @@ export class RoutingLambdaStack extends cdk.NestedStack {
       tokenListCacheBucket,
       provisionedConcurrency,
       ethGasStationInfoUrl,
-      chatbotSNSArn,
       tenderlyUser,
       tenderlyProject,
       tenderlyAccessKey,
@@ -126,40 +122,6 @@ export class RoutingLambdaStack extends cdk.NestedStack {
       tracing: aws_lambda.Tracing.ACTIVE,
     })
 
-    const lambdaAlarmErrorRate = new aws_cloudwatch.Alarm(this, 'RoutingAPI-LambdaErrorRate', {
-      metric: new aws_cloudwatch.MathExpression({
-        expression: 'errors / invocations',
-        usingMetrics: {
-          errors: this.routingLambda.metricErrors({
-            period: Duration.minutes(5),
-            statistic: 'avg',
-          }),
-          invocations: this.routingLambda.metricInvocations({
-            period: Duration.minutes(5),
-            statistic: 'avg',
-          }),
-        },
-      }),
-      threshold: 0.05,
-      evaluationPeriods: 3,
-    })
-
-    const lambdaThrottlesErrorRate = new aws_cloudwatch.Alarm(this, 'RoutingAPI-LambdaThrottles', {
-      metric: this.routingLambda.metricThrottles({
-        period: Duration.minutes(5),
-        statistic: 'sum',
-      }),
-      threshold: 10,
-      evaluationPeriods: 3,
-    })
-
-    if (chatbotSNSArn) {
-      const chatBotTopic = aws_sns.Topic.fromTopicArn(this, 'ChatbotTopic', chatbotSNSArn)
-
-      lambdaAlarmErrorRate.addAlarmAction(new aws_cloudwatch_actions.SnsAction(chatBotTopic))
-
-      lambdaThrottlesErrorRate.addAlarmAction(new aws_cloudwatch_actions.SnsAction(chatBotTopic))
-    }
 
     const enableProvisionedConcurrency = provisionedConcurrency > 0
 
