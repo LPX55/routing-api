@@ -7,5 +7,5 @@ export const chainProtocols = [
     chainId: ChainId.EVMOS,
     timeout: 90000,
     provider: new V3SubgraphProvider(ChainId.EVMOS, 3, 90000),
-  }
+  },
 ]

@@ -99,7 +99,7 @@ export abstract class APIGLambdaHandler<CInj, RInj extends BaseRInj, ReqBody, Re
         ...response,
         headers: {
           ...response.headers,
-          'Access-Control-Allow-Origin': 'https://forge.trade',
+          'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
           'Access-Control-Allow-Credentials': true,
           'Content-Type': 'application/json',

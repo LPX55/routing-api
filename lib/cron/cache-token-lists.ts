@@ -3,9 +3,7 @@ import { S3 } from 'aws-sdk'
 import axios from 'axios'
 import { default as bunyan, default as Logger } from 'bunyan'
 
-const TOKEN_LISTS = [
-  "https://raw.githubusercontent.com/Forge-Trade/tokenlist/main/src/tokenlist.json",
-]
+const TOKEN_LISTS = ['https://raw.githubusercontent.com/Forge-Trade/tokenlist/main/src/tokenlist.json']
 
 const handler: ScheduledHandler = async (event: EventBridgeEvent<string, void>) => {
   const log: Logger = bunyan.createLogger({

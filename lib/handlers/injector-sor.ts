@@ -41,9 +41,7 @@ import { BaseRInj, Injector } from './handler'
 import { V2AWSSubgraphProvider, V3AWSSubgraphProvider } from './router-entities/aws-subgraph-provider'
 import { AWSTokenListProvider } from './router-entities/aws-token-list-provider'
 
-export const SUPPORTED_CHAINS: ChainId[] = [
-  ChainId.EVMOS
-]
+export const SUPPORTED_CHAINS: ChainId[] = [ChainId.EVMOS]
 const DEFAULT_TOKEN_LIST = 'https://raw.githubusercontent.com/Forge-Trade/tokenlist/main/src/tokenlist.json'
 
 export interface RequestInjected<Router> extends BaseRInj {
