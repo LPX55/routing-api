@@ -92,9 +92,9 @@ export class RoutingAPIStack extends cdk.Stack {
     
 
     const api = new aws_apigateway.RestApi(this, 'routing-api', {
-      restApiName: 'Routing API',
+      restApiName: 'Routing API Proxied',
       defaultCorsPreflightOptions: {
-        allowOrigins: ["https://forge.trade"],
+        allowOrigins: aws_apigateway.Cors.ALL_ORIGINS,
         allowMethods: aws_apigateway.Cors.ALL_METHODS,
       },
     })
@@ -121,7 +121,7 @@ export class RoutingAPIStack extends cdk.Stack {
           statement: {
             rateBasedStatement: {
               // Limit is per 5 mins, i.e. 120 requests every 5 mins
-              limit: throttlingOverride ? parseInt(throttlingOverride) : 120,
+              limit: throttlingOverride ? parseInt(throttlingOverride) : 60,
               // API is of type EDGE so is fronted by Cloudfront as a proxy.
               // Use the ip set in X-Forwarded-For by Cloudfront, not the regular IP
               // which would just resolve to Cloudfronts IP.
@@ -161,7 +161,7 @@ export class RoutingAPIStack extends cdk.Stack {
 
     const quote = api.root.addResource('quote', {
       defaultCorsPreflightOptions: {
-        allowOrigins: ["https://forge.trade"],
+        allowOrigins: aws_apigateway.Cors.ALL_ORIGINS,
         allowMethods: aws_apigateway.Cors.ALL_METHODS,
       },
     })
@@ -171,7 +171,7 @@ export class RoutingAPIStack extends cdk.Stack {
 
     const quoteToRatio = api.root.addResource('quoteToRatio', {
       defaultCorsPreflightOptions: {
-        allowOrigins: ["https://forge.trade"],
+        allowOrigins: aws_apigateway.Cors.ALL_ORIGINS,
         allowMethods: aws_apigateway.Cors.ALL_METHODS,
       },
     })
