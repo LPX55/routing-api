@@ -139,5 +139,3 @@ export function parseSlippageTolerance(slippageTolerance: string): Percent {
 export function parseDeadline(deadline: string): number {
   return Math.floor(Date.now() / 1000) + parseInt(deadline)
 }
-
-
