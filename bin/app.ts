@@ -12,6 +12,15 @@ import 'source-map-support/register'
 import { SUPPORTED_CHAINS } from '../lib/handlers/injector-sor'
 import { STAGE } from '../lib/util/stage'
 import { RoutingAPIStack } from './stacks/routing-api-stack'
+// import { RotatingJsonRpcProvider } from '../lib/util/RotatingJsonRpcProvider';
+
+// const providers = [
+//   'https://evmos.lava.build',
+//   'https://evmos-mainnet.blastapi.io/9a419db1-6aab-4126-875f-70bb122c0bdf',
+//   'https://evmos-evm.publicnode.com'
+// ];
+// const provider = new RotatingJsonRpcProvider(providers);
+
 dotenv.config()
 
 export class RoutingAPIStage extends Stage {
@@ -174,7 +183,7 @@ export class RoutingAPIPipeline extends Stack {
     const prodUsEast2Stage = new RoutingAPIStage(this, 'prod-us-east-1', {
       env: { account: '846585797454', region: 'us-east-1' },
       jsonRpcProviders: jsonRpcProviders,
-      provisionedConcurrency: 100,
+      provisionedConcurrency: 50,
       ethGasStationInfoUrl: ethGasStationInfoUrl.secretValue.toString(),
       chatbotSNSArn: 'arn:aws:sns:us-east-1:846585797454:SlackChatbotTopic',
       stage: STAGE.PROD,

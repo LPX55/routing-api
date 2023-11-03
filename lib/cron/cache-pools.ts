@@ -7,7 +7,7 @@ import { S3_POOL_CACHE_KEY } from '../util/pool-cache-key'
 import { chainProtocols } from './cache-config'
 
 const handler: ScheduledHandler = async (event: EventBridgeEvent<string, void>) => {
-  const chainId: ChainId = parseInt(process.env.chainId!)
+  const chainId: ChainId = 9001
   const protocol = process.env.protocol! as Protocol
   // Don't retry for V2 as it will timeout and throw 500
   const provider = chainProtocols.find(

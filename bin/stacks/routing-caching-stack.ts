@@ -94,7 +94,7 @@ export class RoutingCachingStack extends cdk.NestedStack {
           runtime: aws_lambda.Runtime.NODEJS_14_X,
           entry: path.join(__dirname, '../../lib/cron/cache-pools.ts'),
           handler: 'handler',
-          timeout: Duration.seconds(900),
+          timeout: Duration.seconds(30),
           memorySize: 1024,
           bundling: {
             minify: true,
