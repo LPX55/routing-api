@@ -1,4 +1,4 @@
-import { ChainId} from '@orbitalapes/smart-order-router'
+import { ChainId } from '@forge-trade/smart-order-router'
 import * as cdk from 'aws-cdk-lib'
 import { CfnOutput } from 'aws-cdk-lib'
 import * as aws_apigateway from 'aws-cdk-lib/aws-apigateway'

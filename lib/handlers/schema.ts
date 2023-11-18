@@ -1,5 +1,5 @@
 import Joi from '@hapi/joi'
-import { MethodParameters } from '@orbitalapes/smart-order-router'
+import { MethodParameters } from '@forge-trade/smart-order-router'
 
 export type TokenInRoute = {
   address: string

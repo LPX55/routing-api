@@ -6,7 +6,7 @@ import {
   ITokenProvider,
   nativeOnChain,
   NATIVE_NAMES_BY_ID,
-} from '@orbitalapes/smart-order-router'
+} from '@forge-trade/smart-order-router'
 import Logger from 'bunyan'
 
 export const DEFAULT_ROUTING_CONFIG_BY_CHAIN = (chainId: ChainId): AlphaRouterConfig => {
@@ -75,14 +75,14 @@ export const DEFAULT_ROUTING_CONFIG_BY_CHAIN = (chainId: ChainId): AlphaRouterCo
           topNWithBaseToken: 6,
         },
         v3PoolSelection: {
-          topN: 2,
+          topN: 3,
           topNDirectSwaps: 2,
           topNTokenInOut: 2,
-          topNSecondHop: 1,
-          topNWithEachBaseToken: 3,
-          topNWithBaseToken: 3,
+          topNSecondHop: 2,
+          topNWithEachBaseToken: 2,
+          topNWithBaseToken: 5,
         },
-        maxSwapsPerPath: 3,
+        maxSwapsPerPath: 4,
         minSplits: 1,
         maxSplits: 6,
         distributionPercent: 20,

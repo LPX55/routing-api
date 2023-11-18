@@ -60,7 +60,7 @@ export class RoutingLambdaStack extends cdk.NestedStack {
       runtime: aws_lambda.Runtime.NODEJS_14_X,
       entry: path.join(__dirname, '../../lib/handlers/index.ts'),
       handler: 'quoteHandler',
-      timeout: cdk.Duration.seconds(15),
+      timeout: cdk.Duration.seconds(22),
       memorySize: 1024,
       bundling: {
         minify: true,
@@ -95,7 +95,7 @@ export class RoutingLambdaStack extends cdk.NestedStack {
       runtime: aws_lambda.Runtime.NODEJS_14_X,
       entry: path.join(__dirname, '../../lib/handlers/index.ts'),
       handler: 'quoteToRatioHandler',
-      timeout: cdk.Duration.seconds(15),
+      timeout: cdk.Duration.seconds(22),
       memorySize: 1024,
       bundling: {
         minify: true,

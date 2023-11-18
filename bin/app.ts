@@ -1,4 +1,4 @@
-import { ChainId } from '@orbitalapes/smart-order-router'
+import { ChainId } from '@forge-trade/smart-order-router'
 import * as cdk from 'aws-cdk-lib'
 import { CfnOutput, SecretValue, Stack, StackProps, Stage, StageProps } from 'aws-cdk-lib'
 import * as chatbot from 'aws-cdk-lib/aws-chatbot'
@@ -154,7 +154,7 @@ export class RoutingAPIPipeline extends Stack {
     const betaUsEast2Stage = new RoutingAPIStage(this, 'beta-us-east-1', {
       env: { account: '846585797454', region: 'us-east-1' },
       jsonRpcProviders: jsonRpcProviders,
-      provisionedConcurrency: 20,
+      provisionedConcurrency: 40,
       ethGasStationInfoUrl: ethGasStationInfoUrl.secretValue.toString(),
       stage: STAGE.BETA,
       route53Arn: route53Arn.secretValueFromJson('arn').toString(),
@@ -174,7 +174,7 @@ export class RoutingAPIPipeline extends Stack {
     const prodUsEast2Stage = new RoutingAPIStage(this, 'prod-us-east-1', {
       env: { account: '846585797454', region: 'us-east-1' },
       jsonRpcProviders: jsonRpcProviders,
-      provisionedConcurrency: 20,
+      provisionedConcurrency: 50,
       ethGasStationInfoUrl: ethGasStationInfoUrl.secretValue.toString(),
       chatbotSNSArn: 'arn:aws:sns:us-east-1:846585797454:SlackChatbotTopic',
       stage: STAGE.PROD,

@@ -1,5 +1,5 @@
 import { Protocol } from '@uniswap/router-sdk'
-import { ChainId, V3SubgraphProvider } from '@orbitalapes/smart-order-router'
+import { ChainId, V3SubgraphProvider } from '@forge-trade/smart-order-router'
 
 export const chainProtocols = [
   {

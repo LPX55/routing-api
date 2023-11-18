@@ -37,7 +37,7 @@ import {
   USDT_RINKEBY,
   USDT_ROPSTEN,
   WRAPPED_NATIVE_CURRENCY,
-} from '@orbitalapes/smart-order-router'
+} from '@forge-trade/smart-order-router'
 import { ethers } from 'ethers'
 import NodeCache from 'node-cache'
 

@@ -7,7 +7,7 @@ import {
   setGlobalMetric,
   SwapAndAddConfig,
   V3HeuristicGasModelFactory,
-} from '@orbitalapes/smart-order-router'
+} from '@forge-trade/smart-order-router'
 import { MetricsLogger } from 'aws-embedded-metrics'
 import { APIGatewayProxyEvent, Context } from 'aws-lambda'
 import { default as bunyan, default as Logger } from 'bunyan'
